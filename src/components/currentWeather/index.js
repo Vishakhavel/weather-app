@@ -1,6 +1,6 @@
 import './index.css'
 import { Fragment } from 'react'
-const CurrentWeather = () => {
+const CurrentWeather = ({ data }) => {
   return (
     <Fragment>
       <div
@@ -9,10 +9,14 @@ const CurrentWeather = () => {
       >
         <div className='top'>
           <div>
-            <p className='city'>chennai</p>
-            <p className='weatherDescription'>hot af</p>
+            <p className='city'>{data.city}</p>
+            <p className='weatherDescription'>{data.weather[0].description}</p>
           </div>
-          <img src='icons/01d.png' alt='weather' className='weatherIcon' />
+          <img
+            src={`icons/${data.weather[0].icon}.png`}
+            alt='weather'
+            className='weatherIcon'
+          />
         </div>
 
         <div className='bottom'>
